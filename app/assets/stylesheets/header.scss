@@ -7,7 +7,7 @@ $header-padding-y: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $primary-color;
+  background-color: $base-bg-color;
   padding: $header-padding-y 16px;
   font-weight: bold;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -30,6 +30,17 @@ $header-padding-y: 16px;
     height: $avatar-size;
     border-radius: 100%;
   }
+
+  &_loginBtn {
+    background-color: #F8BD1C;
+    height: $avatar-size;
+    border-radius: 8px;
+    font-size: 12px;
+    padding: 10px 16px;
+    color: $base-bg-color;
+    text-decoration: none;
+  }
+
 }
 
 .dropbtn {
