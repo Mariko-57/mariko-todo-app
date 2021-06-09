@@ -1,15 +1,10 @@
 .device-title {
-  position: absolute;
-  height: 36px;
-  left: 0%;
-  right: 54.64%;
-  top: calc(50% - 36px/2);
-
   font-weight: 800;
   font-size: 26px;
   line-height: 36px;
-  /* identical to box height */
+  margin-top: 15px;
+}
 
-
-  color: #000000;
+.device-mgt{
+  margin-top: 20px;
 }
