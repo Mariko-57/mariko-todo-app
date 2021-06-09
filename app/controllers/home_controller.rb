@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    render 'home/index'
+    @board = Board.first
   end
 end
