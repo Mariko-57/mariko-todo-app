@@ -1,0 +1,15 @@
+.container
+  %h2 All Boards
+  
+  - @boards.each do |board|
+    = link_to board_path(board) do
+      .card
+        .card_box
+          .card_title
+            = board.title
+          .card_content
+            = board.content
+          .card_detail
+            = image_tag 'header-avator.png'
+  = link_to new_board_path, class: 'add-link' do
+    + Add new board

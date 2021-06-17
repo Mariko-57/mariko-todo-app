@@ -4,6 +4,9 @@
 @import 'variables';
 @import 'buttons';
 @import 'form';
+@import 'board';
+@import 'flash';
+@import 'common';
 
 /* デフォルト */
 
@@ -68,4 +71,29 @@ html {
 .container {
   padding: 16px 16px;
   width: 100%;
+}
+
+
+.add-link{
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    text-align: center;
+    color: #000000;
+    border: 2px dashed #F2F2F2;
+    padding: 70px 0;
+    display: block;
+    p{
+      font-size: 18px;
+    }
+}
+
+
+a{
+  text-decoration: none;
+  color: $text-base-color;
+}
+
+h2{
+  margin: 10px 0px 20px 10px;
 }
