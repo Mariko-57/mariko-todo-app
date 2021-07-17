@@ -1,14 +1,12 @@
 .container
-  %h2 Board
+  %h2.board_title= @board.title
   .board
-    %h3.board_title= @board.title
-    .board_content
-      = @board.content
-    .board_heart
-      = image_tag 'header-avator.png'
-    .board_actions
-      .dropdown
-        = image_tag 'actions.svg', class: 'dropbtn'
-        .dropdown-content.mini
-          = link_to 'Edit', edit_board_path(@board)
-          = link_to 'Delete', board_path(@board), data: { method: 'delete', confirm: '本当に削除しますか？' }
+    - @tasks.each do |task|
+      = link_to borad_task_path(@board, task) do
+        %h3.task_title= @tasks.title
+        .board_content
+          = @tasks.content
+        .board_heart
+          = image_tag 'header-avator.png'
+  = link_to new_task_path, class: 'add-link' do
+    + Add new card

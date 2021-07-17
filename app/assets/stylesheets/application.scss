@@ -7,6 +7,8 @@
 @import 'board';
 @import 'flash';
 @import 'common';
+@import 'task';
+@import 'comment';
 
 /* デフォルト */
 
@@ -70,7 +72,8 @@ html {
 
 .container {
   padding: 16px 16px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
 
 
@@ -96,4 +99,11 @@ a{
 
 h2{
   margin: 10px 0px 20px 10px;
+}
+
+.base-img{
+  img {
+    width: $heart-size;
+    height: $heart-size;
+}
 }

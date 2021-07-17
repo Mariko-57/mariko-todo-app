@@ -12,3 +12,10 @@
     content: Faker::Lorem.sentence(word_count: 50)
   )
 end
+
+10.times do
+  Task.create(
+    title: Faker::Lorem.sentence(word_count: 5),
+    content: Faker::Lorem.sentence(word_count: 50)
+  )
+end

@@ -11,5 +11,11 @@
             = board.content
           .card_detail
             = image_tag 'header-avator.png'
+      - if user_signed_in? && current_user.has_written?(board)
+        .card-drop
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .carddrop-content.mini
+            = link_to 'Edit', edit_board_path(@boards)
+            = link_to 'Delete', board_path(@boards), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}    
   = link_to new_board_path, class: 'add-link' do
     + Add new board

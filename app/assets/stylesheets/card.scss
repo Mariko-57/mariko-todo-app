@@ -45,3 +45,42 @@ $avatar-size: 30px;
   }
   
 }
+
+.card-drop{
+  position: relative;
+  display: inline-block;
+  margin-right: 6px;
+  padding: 10px;
+}
+
+.carddrop-content {
+  font-weight: normal;
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  border: 1px solid #F4F4F4;
+  border-radius: 10px;
+  top: 45px;
+  z-index: 1;
+
+  &.mini {
+    min-width: 100px;
+  }
+}
+
+.carddrop-content a {
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  color: $text-base-color;
+}
+
+.carddrop-content a:hover {
+  background-color: white;
+}
+
+.card-drop:hover .carddrop-content {
+  display: block;
+}
