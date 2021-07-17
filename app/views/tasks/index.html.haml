@@ -1,0 +1,22 @@
+.container
+  %h2 Brackets
+
+  - @tasks.each do |task|
+    = link_to task_path(task) do
+      .card
+        .card_box
+          .card_title.task_title
+            = task.title
+          .card_content.task_content
+            = task.content
+          .card_detail
+            = image_tag 'header-avator.png'
+        - if user_signed_in? && current_user.has_written?(task)
+          .board_actions
+            .dropdown
+              = image_tag 'actions.svg', class: 'dropbtn'
+              .dropdown-content.mini
+                = link_to 'Edit', edit_board_path(@task)
+                = link_to 'Delete', board_path(@task), data: { method: 'delete', confirm: '本当に削除しますか？' }
+  = link_to new_task_path, class: 'add-link' do
+    + Add new card

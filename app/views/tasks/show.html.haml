@@ -1,0 +1,22 @@
+.container
+  .task_title
+    %h2.task_title= @task.title
+  - if user_signed_in? && current_user.has_written?(@task)
+    .card-drop
+      = image_tag 'actions.svg', class: 'dropbtn'
+      .carddrop-content.mini
+        = link_to 'Edit', edit_task_path(@task)
+        = link_to 'Delete', task_path(@task), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}  
+  .task_img
+    = image_tag 'header-avator.png'
+  .task_content= @task.content
+  .comment
+    %h3.comment_title Comment
+    .comment_box
+      .comment_item
+        .comment_item_img
+          = image_tag 'header-avator.png'
+        .comment_item_text
+          これはテストコメントです。htmlに直接打っています
+    .comment_add.add-link
+      + Add new comment
