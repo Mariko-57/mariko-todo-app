@@ -1,20 +1,21 @@
 class TasksController < ApplicationController
-  def index
-    @tasks = Task.all
-  end
 
   def show
     @task = Task.find(params[:id])
+    @board = @task.board
+    @comments = @task.comments
   end
 
   def new
-    @task = current_user.tasks.build
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build(user_id: current_user.id)
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build(task_params.merge!(user_id: current_user.id))
     if @task.save
-      redirect_to task_path(@task), notice: '新しいTaskが作成されました'
+      redirect_to board_path(board), notice: '新しいTaskが作成されました'
     else
       flash.now[:error] = 'Taskの作成に失敗しました'
       render :new
@@ -43,6 +44,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content)
+    params.require(:task).permit(:title, :content, :eyecatch)
   end
 end

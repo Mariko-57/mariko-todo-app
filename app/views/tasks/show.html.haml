@@ -1,12 +1,12 @@
 .container
   .task_title
     %h2.task_title= @task.title
-  - if user_signed_in? && current_user.has_written?(@task)
-    .card-drop
-      = image_tag 'actions.svg', class: 'dropbtn'
-      .carddrop-content.mini
-        = link_to 'Edit', edit_task_path(@task)
-        = link_to 'Delete', task_path(@task), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}  
+  -# - if user_signed_in? && current_user.has_written?(@task)
+  -#   .card-drop
+  -#     = image_tag 'actions.svg', class: 'dropbtn'
+  -#       .card-drop-content.mini
+  -#         = link_to 'Edit', edit_board_task_path(@task)
+  -#         = link_to 'Delete', board_task_path(@task), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}  
   .task_img
     = image_tag 'header-avator.png'
   .task_content= @task.content
@@ -17,6 +17,7 @@
         .comment_item_img
           = image_tag 'header-avator.png'
         .comment_item_text
-          これはテストコメントです。htmlに直接打っています
-    .comment_add.add-link
+          - @comments.each do |comment|
+            %p= comment.content
+    = link_to new_board_task_comment_path(@board, @task), class: 'comment_add add-link' do
       + Add new comment

@@ -47,17 +47,16 @@ $avatar-size: 30px;
 }
 
 .card-drop{
-  position: relative;
   display: inline-block;
   margin-right: 6px;
   padding: 10px;
+  position: absolute;
+  right: 0;
 }
 
-.carddrop-content {
+.card-drop-content {
   font-weight: normal;
   display: none;
-  right: 0;
-  position: absolute;
   background-color: white;
   min-width: 160px;
   border: 1px solid #F4F4F4;
